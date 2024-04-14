@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react';
 const viewportContext = React.createContext({});
 
 const ViewportProvider = ({ children }) => {
@@ -23,8 +22,8 @@ const ViewportProvider = ({ children }) => {
     </viewportContext.Provider>
   );
 };
-
-const useViewport = () => {
+export default ViewportProvider;
+export const useViewport = () => {
   const { width, height } = React.useContext(viewportContext);
   return { width, height };
 }

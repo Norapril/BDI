@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import ViewportContext  from './viewportContext'
+import ViewportProvider  from './viewportContext'
+import Navigate from './Navigate';
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <ViewportProvider>
+      <Navigate />
+    </ViewportProvider>
   );
 }
 

@@ -1,0 +1,100 @@
+.container {
+    flex: 1;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+.start {
+    margin-top: 20%;
+    padding: 30px;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.startButton {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 18px;
+  font-family: Arial;
+  margin-top: 20px;
+}
+
+.startButton:checked {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.buttonContainer {
+    margin-top: 20%;
+    /*border: 2px solid black;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wrap {
+    padding-bottom: 7px;
+    width: 90%;
+    /*border: 2px solid green;*/
+  }
+  
+  .optionButton {
+    width: 90%;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    text-align: left;
+    background-color: white;
+    border: none;
+    font-size: 18px;
+  }
+  
+  .progressBar {
+    /*border: 2px solid black;*/
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 80%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bgbar {
+    width: 90%;
+    background-color: lightgrey;
+  }
+  
+  .progress {
+    background-color: lightblue;
+    height: 15px;
+    position: relative;
+  }
+  
+  .progressIndicator {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: skyblue;
+    top: -6px;
+    right: 0;
+    transform: translateX(50%);
+  }
+  
+  .progressLabel {
+    display: inline-block;
+    margin-left: 10px;
+    float: right;
+    font-size: 18px;
+  }
+  

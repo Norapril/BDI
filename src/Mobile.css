@@ -1,4 +1,4 @@
-.container {
+.mcontainer {
     flex: 1;
     background-color: #fff;
     flex-direction: column;
@@ -7,7 +7,7 @@
     min-height: 100vh;
   }
 
-.start {
+.mstart {
     margin-top: 20%;
     padding: 30px;
     text-align: center;
@@ -18,7 +18,7 @@
     justify-content: center;
 }
 
-.startButton {
+.mstartButton {
   background-color: #fff;
   border-radius: 8px;
   padding: 15px;
@@ -29,12 +29,12 @@
   margin-top: 20px;
 }
 
-.startButton:checked {
+.mstartButton:active {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: lightblue;
 }
 
-.buttonContainer {
+.mbuttonContainer {
     margin-top: 20%;
     /*border: 2px solid black;*/
     display: flex;
@@ -42,13 +42,13 @@
     align-items: center;
   }
   
-  .wrap {
+  .mwrap {
     padding-bottom: 7px;
     width: 90%;
     /*border: 2px solid green;*/
   }
   
-  .optionButton {
+  .moptionButton {
     width: 90%;
     margin-bottom: 2px;
     margin-top: 10px;
@@ -58,7 +58,7 @@
     font-size: 18px;
   }
   
-  .progressBar {
+  .mprogressBar {
     /*border: 2px solid black;*/
     margin-top: 40px;
     margin-bottom: 30px;
@@ -69,18 +69,18 @@
     align-items: center;
   }
   
-  .bgbar {
+  .mbgbar {
     width: 90%;
     background-color: lightgrey;
   }
   
-  .progress {
+  .mprogress {
     background-color: lightblue;
     height: 15px;
     position: relative;
   }
   
-  .progressIndicator {
+  .mprogressIndicator {
     position: absolute;
     width: 25px;
     height: 25px;
@@ -91,7 +91,7 @@
     transform: translateX(50%);
   }
   
-  .progressLabel {
+  .mprogressLabel {
     display: inline-block;
     margin-left: 10px;
     float: right;

@@ -51,9 +51,11 @@ const DesktopComponent = () => {
             {!showQuestions ? ( // 条件渲染问题页面或开始按钮
                 <div className='start'>
                     <h2>Beck Depression Inventory (贝克抑郁量表)</h2>
-                    <p>BDI测试表格1961年起草，根据抑郁症的专业机构指标的不断改进，也在不断调整。</p>
-                    <p>它的严密和准确性也有很高的validility and reliability得分。被翻译成近20种语言，被各种机构应用。</p>
-                    <p>请根据自己最近的情况，如实回答以下问题。</p>
+                    <p style={{ marginBottom: '5px' }}>你是否经常感觉情绪低落，缺乏动力？</p>
+                    <p style={{ marginBottom: '5px' }}>是时候了解你的心理状态了！最权威的自测表格来了</p>
+                    <p style={{ marginBottom: '5px' }}>BDI测试表格1961年起草，根据抑郁症的专业机构指标的不断改进，也在不断调整。</p>
+                    <p style={{ marginBottom: '5px' }}>它的严密和准确性也有很高的validility and reliability得分。被翻译成近20种语言，被各种机构应用。</p>
+                    <p style={{ marginBottom: '5px' }}>请根据自己最近的情况，如实回答以下问题。</p>
                     <p>问卷需要10-15分钟完成。</p>
                     
                     {/* <button onClick={handleStartClick} style={styles.button}>开始</button> */}

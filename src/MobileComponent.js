@@ -1,6 +1,7 @@
 import { questions } from './questionData';
 //import { StyleSheet, Text, View } from 'react';
 import React, { useState } from 'react';
+import './Mobile.css'
 
 const MobileComponent = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -50,63 +51,122 @@ const MobileComponent = () => {
     
       const progress = ((currentQuestionIndex) / (questions.length)) * 100;
 
-
-    return (
-       <div style={styles.container}>
-        {!showResults ? (
-            <div>
-            {!showQuestions ? ( // 条件渲染问题页面或开始按钮
-                <div style={styles.start}>
-                    <h2>Beck Depression Inventory (贝克抑郁量表)</h2>
-                    <p>BDI测试表格1961年起草，根据抑郁症的专业机构指标的不断改进，也在不断调整。</p>
-                    <p>它的严密和准确性也有很高的validility and reliability得分。被翻译成近20种语言，被各种机构应用。</p>
-                    <p>请根据自己最近的情况，如实回答以下问题。</p>
-                    <p>问卷需要10-15分钟完成。</p>
+      return (
+        <div className='mcontainer'>
+         {!showResults ? (
+             <div>
+             {!showQuestions ? ( // 条件渲染问题页面或开始按钮
+                 <div className='mstart'>
+                     <h2>Beck Depression Inventory (贝克抑郁量表)</h2>
+                     <p style={{ marginBottom: '5px' }}> 你是否经常感觉情绪低落，缺乏动力？</p>
+                     <p style={{ marginBottom: '5px' }}>是时候了解你的心理状态了！最权威的自测表格来了</p>
+                     <p style={{ marginBottom: '5px' }}>BDI测试表格1961年起草，根据抑郁症的专业机构指标的不断改进，也在不断调整。</p>
+                     <p style={{ marginBottom: '5px' }}>它的严密和准确性也有很高的validility and reliability得分。被翻译成近20种语言，被各种机构应用。</p>
+                     <p style={{ marginBottom: '5px' }}>请根据自己最近的情况，如实回答以下问题。</p>
+                     <p>问卷需要10-15分钟完成。</p>
+                     
+                     {/* <button onClick={handleStartClick} style={styles.button}>开始</button> */}
+                     <button className='mstartButton' onClick={handleStartClick}>开始</button>
+ 
+                 </div>
+             ) : (
+                 <div className='mbuttonContainer'>
+                     {/* <div style={styles.progressBar}>
+                         <div style={{ width: `${progress}%`, backgroundColor: 'grey', height: 10 }}></div>
+                     </div> */}
+                     <div className='mprogressBar'>
+                       <div className='mbgbar'>
+                         <div className="mprogress" style={{ width: `${progress}%` }}>
+                           <div className="mprogressIndicator"></div>
+                         </div>                   
+                       </div>
+                       <span className='mprogressLabel'>{`${currentQuestionIndex + 1}/${questions.length}`}</span>
+                     </div>
+                     {questions[currentQuestionIndex].options.map((option, index) => (
+                         <div key={index} className='mwrap'> 
+                             {/* <input type="checkbox" checked={false} onClick={() => handleOptionClick(option.score)}/> */}
+                             <input 
+                                 type="checkbox" 
+                                 checked={selectedOption === option}
+                                 onChange={() => handleOptionClick(option, index)}
+                                 // checked={optionChecked[index]} 
+                                 // onMouseDown={() => handleOptionClick(option.score, index)}
+                                 // onMouseUp={() => handleOptionUnClick(option.score, index)}
+                             />
+                             <button className='moptionButton' onClick={() => handleOptionClick(option, index)}>
+                                 {option.text}
+                             </button>
+                         </div>
+                     ))}
+                     
+                 </div>
+             )}
+             </div>
+         ) : (
+             <div className='mstart'>
+             <p>恭喜您完成了所有问题。</p>
+             <p>评测结果： 您的抑郁程度得分为{answer}，属于{getDepressionLevel(answer)}。</p>
+             <p>此评测为自测，如有疑虑请预约专业评估机构进行评测。</p>
+             </div>
+         )}
+     </div>
+     );
+    // return (
+    //    <div style={styles.container}>
+    //     {!showResults ? (
+    //         <div>
+    //         {!showQuestions ? ( // 条件渲染问题页面或开始按钮
+    //             <div style={styles.start}>
+    //                 <h2>Beck Depression Inventory (贝克抑郁量表)</h2>
+    //                 <p>BDI测试表格1961年起草，根据抑郁症的专业机构指标的不断改进，也在不断调整。</p>
+    //                 <p>它的严密和准确性也有很高的validility and reliability得分。被翻译成近20种语言，被各种机构应用。</p>
+    //                 <p>请根据自己最近的情况，如实回答以下问题。</p>
+    //                 <p>问卷需要10-15分钟完成。</p>
                     
-                    <button onClick={handleStartClick} style={styles.button}>开始</button>
-                </div>
-            ) : (
-                <div style={styles.buttonContainer}>
-                    {/* <div style={styles.progressBar}>
-                        <div style={{ width: `${progress}%`, backgroundColor: 'grey', height: 10 }}></div>
-                    </div> */}
-                    <div style={styles.progressBar}>
-                      <div style={styles.bgbar}>
-                        <div style={{ ...styles.progress, width: `${progress}%` }}>
-                            <div style={styles.progressIndicator}></div>
-                        </div>
-                      </div>
-                      <span style={styles.progressLabel}>{`${currentQuestionIndex + 1}/${questions.length}`}</span>
-                    </div>
-                    {questions[currentQuestionIndex].options.map((option, index) => (
-                        <div key={index} style={styles.wrap}> 
-                            {/* <input type="checkbox" checked={false} onClick={() => handleOptionClick(option.score)}/> */}
-                            <input 
-                                type="checkbox" 
-                                checked={selectedOption === option}
-                                onChange={() => handleOptionClick(option, index)}
-                                // checked={optionChecked[index]} 
-                                // onMouseDown={() => handleOptionClick(option.score, index)}
-                                // onMouseUp={() => handleOptionUnClick(option.score, index)}
-                            />
-                            <button style={styles.optionButton} onClick={() => handleOptionClick(option, index)}>
-                                {option.text}
-                            </button>
-                        </div>
-                    ))}
+    //                 <button onClick={handleStartClick} style={styles.button}>开始</button>
+    //             </div>
+    //         ) : (
+    //             <div style={styles.buttonContainer}>
+    //                 {/* <div style={styles.progressBar}>
+    //                     <div style={{ width: `${progress}%`, backgroundColor: 'grey', height: 10 }}></div>
+    //                 </div> */}
+    //                 <div style={styles.progressBar}>
+    //                   <div style={styles.bgbar}>
+    //                     <div style={{ ...styles.progress, width: `${progress}%` }}>
+    //                         <div style={styles.progressIndicator}></div>
+    //                     </div>
+    //                   </div>
+    //                   <span style={styles.progressLabel}>{`${currentQuestionIndex + 1}/${questions.length}`}</span>
+    //                 </div>
+    //                 {questions[currentQuestionIndex].options.map((option, index) => (
+    //                     <div key={index} style={styles.wrap}> 
+    //                         {/* <input type="checkbox" checked={false} onClick={() => handleOptionClick(option.score)}/> */}
+    //                         <input 
+    //                             type="checkbox" 
+    //                             checked={selectedOption === option}
+    //                             onChange={() => handleOptionClick(option, index)}
+    //                             // checked={optionChecked[index]} 
+    //                             // onMouseDown={() => handleOptionClick(option.score, index)}
+    //                             // onMouseUp={() => handleOptionUnClick(option.score, index)}
+    //                         />
+    //                         <button style={styles.optionButton} onClick={() => handleOptionClick(option, index)}>
+    //                             {option.text}
+    //                         </button>
+    //                     </div>
+    //                 ))}
                     
-                </div>
-            )}
-            </div>
-        ) : (
-            <div style={styles.start}>
-            <p>恭喜您完成了所有问题。</p>
-            <p>评测结果： 您的抑郁程度得分为{answer}，属于{getDepressionLevel(answer)}。</p>
-            <p>此评测为自测，如有疑虑请预约专业评估机构进行评测。</p>
-            </div>
-        )}
-    </div>
-    );
+    //             </div>
+    //         )}
+    //         </div>
+    //     ) : (
+    //         <div style={styles.start}>
+    //         <p>恭喜您完成了所有问题。</p>
+    //         <p>评测结果： 您的抑郁程度得分为{answer}，属于{getDepressionLevel(answer)}。</p>
+    //         <p>此评测为自测，如有疑虑请预约专业评估机构进行评测。</p>
+    //         </div>
+    //     )}
+    // </div>
+    // );
 }
 
 const styles = {

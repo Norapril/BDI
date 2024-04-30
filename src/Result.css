@@ -1,0 +1,38 @@
+.advice-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .advice-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .advice-container p, .advice-container li {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    
+  }
+
+  .advice-container li {
+    text-align: left;
+  }
+  
+  .advice-container ol {
+    margin-left: 20px;
+  }
+  
+  .wechat-group {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .wechat-group:hover {
+    text-decoration: underline;
+  }
+  

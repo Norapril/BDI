@@ -3,6 +3,7 @@ import { questions } from './questionData';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import './Desktop.css';
+import { Re1, Re2, Re3, Re4, Re5, Re6 } from './ResultComponent';
 
 const DesktopComponent = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -24,6 +25,7 @@ const DesktopComponent = () => {
                 setCurrentQuestionIndex(nextQuestionIndex);
                 setAnswer(answer + option.score)
               } else {
+                setAnswer(answer + option.score)
                 setShowResults(true);
               }
             
@@ -97,9 +99,15 @@ const DesktopComponent = () => {
             </div>
         ) : (
             <div className='start'>
-            <p>恭喜您完成了所有问题。</p>
-            <p>评测结果： 您的抑郁程度得分为{answer}，属于{getDepressionLevel(answer)}。</p>
-            <p>此评测为自测，如有疑虑请预约专业评估机构进行评测。</p>
+              <p>恭喜您完成了所有问题。</p>
+              <p>评测结果： 您的抑郁程度得分为{answer}，属于{getDepressionLevel(answer)}。</p>
+              <p>此评测为自测，如有疑虑请预约专业评估机构进行评测。</p>
+              {answer >= 0 && answer <= 10 && <Re1 />}
+              {answer >= 11 && answer <= 16 && <Re2 />}
+              {answer >= 17 && answer <= 20 && <Re3 />}
+              {answer >= 21 && answer <= 30 && <Re4 />}
+              {answer >= 31 && answer <= 40 && <Re5 />}
+              {answer >= 41 && <Re6 />}
             </div>
         )}
     </div>
